@@ -7,49 +7,82 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <main class="container">
-      <h1>MONEY TRACKER</h1>
-
-      <section id="people-section">
-        <div class="header">
-          <h2>People</h2>
-          <form id="add-person-form">
-            <input name="name" placeholder="Name" required />
-            <input name="phone" placeholder="Phone (optional)" />
-            <input name="email" placeholder="Email (optional)" />
-            <button type="submit">Add Person</button>
-          </form>
+    <!-- Login Page -->
+    <section id="login-page" class="login-page">
+      <div class="login-card">
+        <div class="login-logo">
+          <div class="logo-icon">₦</div>
+          <h1>Fatima's Money Custody Tracker</h1>
+          <p class="tagline">Sign in to manage your records</p>
         </div>
-        <ul id="people-list"></ul>
-      </section>
+        <form id="login-form">
+          <label for="login-username">Username</label>
+          <input id="login-username" name="username" type="text" placeholder="Enter username" required autocomplete="username" />
+          <label for="login-password">Password</label>
+          <input id="login-password" name="password" type="password" placeholder="Enter password" required autocomplete="current-password" />
+          <button type="submit">Sign In</button>
+          <div id="login-error" class="login-error hidden"></div>
+        </form>
+      </div>
+    </section>
 
-      <section id="person-detail" class="card hidden">
-        <button id="back-to-people" class="link">← Back</button>
-        <h2 id="detail-name"></h2>
-        <div id="summary" class="summary"></div>
-
-        <div class="txn-area">
-          <form id="add-transaction-form" class="txn-form">
-            <label>Type</label>
-            <select name="type" required>
-              <option value="received">Money Received</option>
-              <option value="returned">Money Sent Back</option>
-            </select>
-            <label>Amount (₦)</label>
-            <input name="amount" type="number" step="0.01" required />
-            <label>Date</label>
-            <input name="date" type="date" required />
-            <label>Description</label>
-            <input name="description" />
-            <button type="submit">Add Transaction</button>
-          </form>
-
-          <h3>Transactions</h3>
-          <div id="transactions-list"></div>
+    <!-- Dashboard -->
+    <div id="dashboard" class="hidden">
+      <header class="app-header">
+        <div class="container header-inner">
+          <div class="logo">
+            <div class="logo-icon">₦</div>
+            <div>
+              <h1>Fatima's Money Custody Tracker</h1>
+              <p class="tagline">Track money held in custody with confidence</p>
+            </div>
+          </div>
+          <button id="logout-btn" class="btn logout">Logout</button>
         </div>
-      </section>
+      </header>
 
-    </main>
+      <main class="container">
+        <section id="people-section" class="card">
+          <div class="section-header">
+            <h2>People</h2>
+            <form id="add-person-form">
+              <input name="name" placeholder="Name" required />
+              <input name="phone" placeholder="Phone (optional)" />
+              <input name="email" placeholder="Email (optional)" />
+              <button type="submit">Add Person</button>
+            </form>
+          </div>
+          <ul id="people-list"></ul>
+        </section>
+
+        <section id="person-detail" class="card hidden">
+          <button id="back-to-people" class="link">← Back to People</button>
+          <h2 id="detail-name"></h2>
+          <div id="summary" class="summary"></div>
+
+          <div class="txn-area">
+            <h3>Add Transaction</h3>
+            <form id="add-transaction-form" class="txn-form">
+              <label>Type</label>
+              <select name="type" required>
+                <option value="received">Money Received</option>
+                <option value="returned">Money Sent Back</option>
+              </select>
+              <label>Amount (₦)</label>
+              <input name="amount" type="number" step="0.01" required />
+              <label>Date</label>
+              <input name="date" type="date" required />
+              <label>Description</label>
+              <input name="description" />
+              <button type="submit">Add Transaction</button>
+            </form>
+
+            <h3>Transaction History</h3>
+            <div id="transactions-list"></div>
+          </div>
+        </section>
+      </main>
+    </div>
 
     <script src="js/app.js"></script>
   </body>
