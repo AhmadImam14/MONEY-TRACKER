@@ -3,8 +3,10 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const { connect } = require('./db');
+const authRoutes = require('./routes/auth');
 const peopleRoutes = require('./routes/people');
 const transactionsRoutes = require('./routes/transactions');
+const requireAuth = require('./middleware/auth');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
@@ -16,8 +18,12 @@ app.use(express.json());
 
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
 
-app.use('/api/people', peopleRoutes);
-app.use('/api', transactionsRoutes);
+// Public auth route
+app.use('/api/auth', authRoutes);
+
+// Protected API routes
+app.use('/api/people', requireAuth, peopleRoutes);
+app.use('/api', requireAuth, transactionsRoutes);
 
 // Serve frontend static files from project frontend/ for convenience
 const frontendPath = path.join(__dirname, '..', '..', 'frontend');
