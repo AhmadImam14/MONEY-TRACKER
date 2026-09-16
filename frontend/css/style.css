@@ -211,9 +211,9 @@ body {
 
 /* ---------- Layout ---------- */
 .container {
-  max-width: 900px;
+  /* max-width: 900px; */
   margin: 0 auto;
-  padding: 0 16px 40px;
+  padding: 0 5px 10px;
 }
 
 .card {
@@ -513,7 +513,7 @@ body {
 
 .btn.cancel {
   background: #e2e8f0;
-  color: var(--muted);
+  /* color: var(--muted); */
 }
 
 .btn.cancel:hover { background: #cbd5e1; }
