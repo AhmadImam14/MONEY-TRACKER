@@ -213,13 +213,13 @@ body {
 .container {
   /* max-width: 900px; */
   margin: 0 auto;
-  padding: 0 5px 10px;
+  /* padding: 0 5px 10px; */
 }
 
 .card {
   background: var(--card);
   padding: 24px;
-  border-radius: var(--radius);
+  /* border-radius: var(--radius); */
   box-shadow: var(--shadow-lg);
   margin-bottom: 20px;
   border: 1px solid var(--border);
